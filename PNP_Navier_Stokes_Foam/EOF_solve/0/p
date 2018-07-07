@@ -1,0 +1,67 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.5                                   |
+|   \\  /    A nd           | Web:      http://www.OpenFOAM.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      p;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -2 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    inlet           
+    {
+       // type            zeroGradient;
+	type            fixedValue;
+        value           uniform 0;
+    }
+
+    outlet          
+    {
+        type            fixedValue;
+        value           uniform 0; // actual pressure = 0 bar so p/rho = 0 where rho = 1000 and p_norm = p_actual/p0 = 0/1 = 0 as p0 = D0^2/x0^2 = 1
+    }
+
+     micropore_upperwall      
+    {
+        type            zeroGradient;
+    }
+
+    nanopore_upperwall       
+    {
+        type            zeroGradient;
+    }
+
+micropore_side_upperwall  
+    {
+        type            zeroGradient;
+    }
+  axis
+    {
+        type            empty;
+    }
+   
+   
+     front
+    {
+        type            wedge;
+    }
+
+   back
+    {
+        type            wedge;
+    }
+}
+
+// ************************************************************************* //

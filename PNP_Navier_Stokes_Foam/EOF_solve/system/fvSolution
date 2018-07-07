@@ -1,0 +1,124 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.5                                   |
+|   \\  /    A nd           | Web:      http://www.OpenFOAM.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      fvSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+    C1 PBiCG 
+    {
+        preconditioner   DILU;
+        tolerance        1e-07;
+        relTol           0;
+    };
+
+ 	C2 PBiCG
+    {
+        preconditioner   DILU;
+        tolerance        1e-07;
+        relTol           0;
+    };
+
+	C3 PBiCG
+    {
+        preconditioner   DILU;
+        tolerance        1e-07;
+        relTol           0;
+    };
+ 	Phi PCG
+    {
+        preconditioner   DIC;
+        tolerance        1e-07;
+        relTol           0;
+    };
+
+ 	PhiInitial PCG
+    {
+        preconditioner   DIC;
+        tolerance        1e-07;
+        relTol           0;
+    };
+	p PCG
+    {
+        preconditioner   DIC;
+        tolerance        1e-07;
+        relTol           0.01;
+    };
+    U PBiCG
+    {
+        preconditioner   DILU;
+        tolerance        1e-07;
+        relTol           0.1;
+    };
+    k PBiCG
+    {
+        preconditioner   DILU;
+        tolerance        1e-05;
+        relTol           0.1;
+    };
+    epsilon PBiCG
+    {
+        preconditioner   DILU;
+        tolerance        1e-05;
+        relTol           0.1;
+    };
+    R PBiCG
+    {
+        preconditioner   DILU;
+        tolerance        1e-05;
+        relTol           0.1;
+    };
+    nuTilda PBiCG
+    {
+        preconditioner   DILU;
+        tolerance        1e-05;
+        relTol           0.1;
+    };
+}
+
+PISO
+{
+    nCorrectors     2;
+    nNonOrthogonalCorrectors 0;
+    pRefCell        0;
+    pRefValue       0;
+}
+
+
+relaxationFactors
+{
+	C1Eqn	0.5;
+	C2Eqn	0.5;
+        C3Eqn	0.5;
+	PhiEqn	0.5;
+	C1	0.2;
+	C2	0.2;
+   	C3	0.2;
+	Phi	0.2;
+	p               0.3;
+     	U               0.7;
+    	k               0.7;
+   	epsilon         0.7;
+    	R               0.7;
+   	nuTilda         0.7;
+}
+
+solverControls
+{
+    nCorrectorsMax     	3000;
+    globalTolerance	1e-07;
+    globalTolerance2	9.9e-02;
+}
+//
+// ************************************************************************* //

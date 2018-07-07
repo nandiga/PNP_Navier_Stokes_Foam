@@ -1,0 +1,72 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.5                                   |
+|   \\  /    A nd           | Web:      http://www.OpenFOAM.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      Phi;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+   inlet           
+    {
+       type            fixedValue;
+       value           uniform 3.8684;
+    }
+
+    outlet          
+    {
+      //type            zeroGradient;
+	type            fixedValue;
+        value           uniform 0.0; // Phi_norm = Phi_actual/Phi_0 ; Phi_0 = RT/F; Phi_actual = 40 V
+    }
+
+  micropore_upperwall      
+    {
+       type            zeroGradient;     
+    }
+
+    nanopore_upperwall      
+    {
+       	type            fixedGradient;
+        gradient        uniform -2.8945; //T = 300K grad(Phi).n2 = sigma/(eo*er), implies grad(phi_normalized) = (sigma*x0*F)/(R*T*eo*er) where n2 is pointing outwards, sigma = -53 mC/m^2
+	    
+    }
+
+micropore_side_upperwall
+{
+       type            zeroGradient;     
+    }
+
+
+  axis
+    {
+        type            empty;
+    }
+   
+   
+     front
+    {
+        type            wedge;
+    }
+
+   back
+    {
+        type            wedge;
+    }
+}
+
+// ************************************************************************* //

@@ -1,0 +1,82 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.5                                   |
+|   \\  /    A nd           | Web:      http://www.OpenFOAM.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      C1;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 0 0 0 0];
+
+internalField   uniform 1000;
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           uniform 1000;  // Potassium ion = (1000 mM)
+	}
+    outlet
+    {
+     	type            fixedValue;
+        value           uniform 1000;
+	}
+
+    micropore_upperwall
+    {
+      type            zeroIonNormalFlux;
+            electricField   electricField;
+	    Zi              1.0;
+	    gradient        uniform 0.0;        
+	    value           uniform 0; 
+    }
+
+ 
+    nanopore_upperwall
+    {
+      type            zeroIonNormalFlux;
+            electricField   electricField;
+	    Zi              1.0;
+	    gradient        uniform 0.0;        
+	    value           uniform 0; 
+    }
+
+  micropore_side_upperwall
+    {
+      type            zeroIonNormalFlux;
+            electricField   electricField;
+	    Zi              1.0;
+	    gradient        uniform 0.0;        
+	    value           uniform 0; 
+    }
+
+
+   axis
+    {
+        type            empty;
+    }
+   
+   
+     front
+    {
+        type            wedge;
+    }
+
+   back
+    {
+        type            wedge;
+    }
+}
+
+
+// ************************************************************************* //

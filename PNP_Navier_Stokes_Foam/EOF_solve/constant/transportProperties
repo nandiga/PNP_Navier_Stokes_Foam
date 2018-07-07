@@ -1,0 +1,32 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.5                                   |
+|   \\  /    A nd           | Web:      http://www.OpenFOAM.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      transportProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+D1              D1 [0 2 -1 0 0 0 0] 1.96;		// diffusion coefficient of K+
+K1              K1 [0 2 -1 0 0 0 0] 1.96;		// K1 = Z1 * D1, Z1 - valence number of K+ = 1
+D2              D2 [0 2 -1 0 0 0 0] 2.03;		// diffusion coefficient of Cl-
+K2              K2 [0 2 -1 0 0 0 0] -2.03;		// K2 = Z2 * D2, Z2 - valence number of Cl- = -1
+
+Z1              Z1 [0 0 0 0 0 0 0] 1;			// Z1 - valence number of K+ = 1
+Z2              Z2 [0 0 0 0 0 0 0] -1;			// Z2 - valence number of Cl- = -1
+R		R [1 2 -2 -1 0 0 0] 8.314;		// Universal Gas Constant (J/mol K) (fixed)
+F 		F [0 0 1 0 0 1 0] 96485.3;		// Faraday's constant (C/mol) (fixed)
+T		T [0 0 0 1 0 0 0] 300.0;		// Temperature (K) (fixed)
+alpha 	     alpha [0 -2 0 0 0 0 0] 0.0052694043;		//alpha = F^2*C0 * X0^2/R*T*eo*er where (F - faraday's constant = 96485.3 C/mol, C0 - user defined concentration = 1, X0 - user defined length = 1nm , eo - permitivity of vacuum = 8.854e-12 and er - relative permitivity = 80 (for water)
+nu              nu [0 2 -1 0 0 0 0] 1003;		// kinematic viscosity (m2/s)normalised value considering mu = 1.003e-3 at 300K
+beta 	        beta [0 2 -2 0 0 0 0] 2.4942;		//beta = R*T*x0^2*C0/(rho0 * D0^2) (m2/s2) R = 8.314 T = 300K, rho0 = 1000, D0 = 1e-9;
+
+
+// ************************************************************************* //

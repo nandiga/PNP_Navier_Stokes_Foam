@@ -1,0 +1,3 @@
+LOCAL_OBJECTS = \
+zeroIonFluxFvPatchScalarField.o\
+eofFoam_dc.o

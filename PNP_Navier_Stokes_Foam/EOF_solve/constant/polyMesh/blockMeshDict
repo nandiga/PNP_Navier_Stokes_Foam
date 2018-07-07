@@ -1,0 +1,213 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.4.1-dev                             |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "";
+    local           "";
+
+    class           dictionary;
+    object          blockMeshDict;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+ 
+
+
+
+
+
+
+ 
+
+ 
+convertToMeters 1;
+
+// Dimensions
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Cell numbers
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Mesh ratios
+
+// Constucting a 2D axisymmetric cylindrical nanopore connected to two cylindrical micropores
+
+// Length of left micropore_1 (L_m1)= 10 micron
+// length of right macropore_2 (L_m2) = 10 micron
+// length of nanopore (L_n)= 0.65 nm
+// radius of micropore_1= (r_m1)= 500 nm
+// radius of macropore_2 (r_m2)= 50 nm
+// radius of nanopore (r_n) = 3 nm
+// theta = 2 deg
+// r_m1*cos(theta/2) = 499.92384 (normalized units)
+// r_m2*cos(theta/2) = 49.992384 (normalized units)
+// r_n*cos(theta/2) = 2.999543 (normalized units)
+// r_m1*sin(theta/2) = 8.7262 (normalized units)
+// r_m2*sin(theta/2) = 0.87262 (normalized units)
+// r_n*sin(theta/2) = 0.05235 (normalized units)
+vertices
+( 
+    
+    (0 0 0)   // vertex 0 (0,0,0)
+    (10000 0 0)  // vertex 1  (L_m1,0,0)
+    (10000.65 0 0) //vertex 2  (L_m1+L_n,0,0)
+    (20000.65 0 0) // vertex 3 (L_m1+L_n+L_m2,0,0)
+   
+    (0     2.999543 -0.05235) // vertex 4 (0,r_n*cos(theta/2),-r_n*sin(theta/2))
+    (10000  2.999543 -0.05235) // vertex 5 (L_m1,r_n*cos(theta/2),-r_n*sin(theta/2))
+    (10000.65 2.999543 -0.05235) // vertex 6 (L_m1+L_n,r_n*cos(theta/2),-r_n*sin(theta/2))
+    (20000.65 2.999543 -0.05235) // vertex 7 (L_m1+L_n+L_m2,r_n*cos(theta/2),-r_n*sin(theta/2))
+    
+    (0     499.92384 -8.7262) // vertex 8 (0,r_m1*cos(theta/2),-r_m1*sin(theta/2))
+    (10000  499.92384 -8.7262) // vertex 9 (L_m1,r_m1*cos(theta/2),-r_m1*sin(theta/2))
+    (10000.65 49.992384  -0.87262) // vertex 10 (L_m1+L_n,r_m2*cos(theta/2),-r_m2*sin(theta/2))
+    (20000.65 49.992384  -0.87262) // vertex 11 (L_m1+L_n+L_m2,r_m2*cos(theta/2),-r_m2*sin(theta/2))
+
+    (0 0 0.05235)   // vertex 12 (0,0,r_n*sin(theta/2))
+    (10000 0 0.05235)  // vertex 13  (L_m1,0,r_n*sin(theta/2))
+    (10000.65 0 0.05235) //vertex 14  (L_m1+L_n,0,r_n*sin(theta/2))
+    (20000.65 0 0.05235) // vertex 15 (L_m1+L_n+L_m2,0,r_n*sin(theta/2))
+
+    (0     2.999543 0.05235)   // vertex 16 (0,r_n*cos(theta/2),r_n*sin(theta/2))
+    (10000  2.999543 0.05235)  // vertex 17  (L_m1,r_n*cos(theta/2),r_n*sin(theta/2))
+    (10000.65 2.999543 0.05235) //vertex 18  (L_m1+L_n,r_n*cos(theta/2),r_n*sin(theta/2))
+    (20000.65 2.999543 0.05235) // vertex 19 (L_m1+L_n+L_m2,r_n*cos(theta/2),r_n*sin(theta/2))
+   
+    (0 0 8.7262)   // vertex 20 (0,0,r_m1*sin(theta/2))
+    (10000 0 8.7262)  // vertex 21  (L_m1,0,r_m1*sin(theta/2))
+    (10000.65 0 0.87262) //vertex 22  (L_m1+L_n,0,r_m2*sin(theta/2))
+    (20000.65 0 0.87262) // vertex 23 (L_m1+L_n+L_m2,0,r_m2*sin(theta/2))
+
+    (0     499.92384 8.7262) // vertex 24 (0,r_m1*cos(theta/2),r_m1*sin(theta/2))
+    (10000  499.92384 8.7262) // vertex 25 (L_m1,r_m1*cos(theta/2),r_m1*sin(theta/2))
+    (10000.65 49.992384  0.87262) // vertex 26 (L_m1+L_n,r_m2*cos(theta/2),r_m2*sin(theta/2))
+    (20000.65 49.992384  0.87262) // vertex 27 (L_m1+L_n+L_m2,r_m2*cos(theta/2),r_m2*sin(theta/2))
+);
+
+
+blocks
+(
+// left micropore m_1
+
+    hex (0 1 5 4 0 1 17 16) (100 18 1) simpleGrading (1 1 1) // block1
+    hex (4 5 9 8 16 17 25 24) (100 50 1) simpleGrading (1 1 1) // block2
+
+// nanopore
+    hex (1 2 6 5 1 2 18 17) (10 18 1) simpleGrading (1 1 1) // block3
+
+// right micropore m_2 
+
+    hex (2 3 7 6 2 3 19 18) (100 18 1) simpleGrading (1 1 1) // block4
+    hex (6 7 11 10 18 19 27 26) (100 25 1) simpleGrading (1 1 1) // block5
+
+// grading ration = width of end cell in that particular edge direction to width of start cell     
+ 
+);
+
+edges
+(
+);
+
+patches
+(
+    patch inlet
+     	   (
+		(0 4 16 0)
+		(4 8 24 16)
+		
+	
+	 )
+ 
+   patch outlet
+     	 (
+		(3 7 19 3)
+		(7 11 27 19)
+		
+
+	 )
+    
+   wall micropore_upperwall
+     	 (
+		(8 9 25 24)
+		(10 11 27 26)
+		
+	 )
+        
+   wall nanopore_upperwall
+     	 (
+		(5 6 18 17)
+		
+	 )
+
+  wall micropore_side_upperwall
+     	 (
+		(5 9 25 17)
+		(6 10 26 18)
+		
+	 )
+
+   empty axis
+     	 (
+		(0 1 1 0)
+		(1 2 2 1)
+		(2 3 3 2)
+	 )
+    
+    wedge front
+      
+	 (
+	  (0 1 5 4)
+	  (4 5 9 8)
+	  (1 2 6 5)
+	  (2 3 7 6)
+	  (6 7 11 10)
+		
+	 )
+	wedge back
+    	 (
+	   (0 1 17 16)
+	   (16 17 25 24)
+	   (1 2 18 17)
+	   (2 3 19 18)
+	   (18 19 27 26)
+	 )
+
+);
+
+mergePatchPairs
+(
+);
+
