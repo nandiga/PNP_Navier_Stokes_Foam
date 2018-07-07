@@ -1,2 +1,46 @@
 # PNP_Navier_Stokes_Foam
 Ion transport and electroosmotic flow in nanofluidic channels and nanopores
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                        	EOF_Foam for PNP+Navier-Stokes equations   		
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+The EOF_Foam code is written to solve PNP+Navier-Stokes equations.
+
+The code was developed to study ion transport and electroosmotic flow in nanofluidic channels and nanopores.
+
+The code works for OpenFoam version 2.1.1. 
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+To run the code, 
+
+		blockMesh
+		EOF_Foam
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+The code was used in several of our published work referenced below.
+
+
+		1. V. V. R. Nandigana, K. D. Jo, A. T. Timperman and N. R. Aluru, Scientific Rep. (just accepted)
+
+		2. V. V. R. Nandigana and N. R.Aluru, “1/f pink chaos in nanopores”, RSC Advances,7,46092-46100,2017.
+
+		3. J. Feng, M. Graf, K. Liu, D. Ovchinnikov, D. Dumcenco, M. Heiranian, V. V. R. Nandigana, N. R.Aluru, A. Kis and A. Radenovic, “Single-layer MoS2 nanopores as nanopower generators”, Nature, 536, 197-200, 2016.
+
+		4. V. V. R. Nandigana and N. R. Aluru, “Avalanche effects near nano-junctions”, Phys. Rev. E, 94, 012402, 2016.
+
+		5. H. Wang, V. V. R. Nandigana, K. Jo, N. R. Aluru and A. Timperman, “Controlling the Ionic Current Rectification Factor of a Nanofluidic-Microfluidic Interface with Symmetric Nanocapillary Interconnects“, Analytical Chemistry, 87, 3598-3605, 2015. (selected as cover, July, 2015).
+
+		6. V. V. R. Nandigana and N. R. Aluru, “Characterization of electrochemical properties of a micro–nanochannel integrated system using computational impedance spectroscopy (CIS)“, Electrochimica Acta, 105, 514-523, 2013.
+
+		7. V. V. R. Nandigana and N. R. Aluru, “Nonlinear Electrokinetic Transport Under Combined ac and dc Fields in Micro-Nanofluidic Interface Devices“,Journal of Fluids Engineering, 135, 021201, 2013.
+
+		8. V. V. R. Nandigana and N. R. Aluru, “Understanding anomalous current–voltage characteristics in microchannel–nanochannel interconnect devices“, Journal of Colloid and Interface Science, 384, 162-171, 2012.
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Copyright © 2018 by Vishal V. R. Nandigana, IIT Madras, Chennai, India.
