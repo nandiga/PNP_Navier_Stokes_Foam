@@ -22,7 +22,7 @@ To run the code,
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-Please cite the following references for using this code. 
+Please cite the following references for using this code. Please cite the following references to use this code.
 
 
 		1. V. V. R. Nandigana, K. D. Jo, A. T. Timperman and N. R. Aluru, Scientific Rep. (just accepted)
