@@ -1,5 +1,5 @@
 # PNP_Navier_Stokes_Foam
-Ion transport and electroosmotic flow in nanofluidic channels and nanopores
+OpenFOAM code to solve PNP+Navier-Stokes equations
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
                         	EOF_Foam for PNP+Navier-Stokes equations   		
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -7,7 +7,7 @@ Ion transport and electroosmotic flow in nanofluidic channels and nanopores
 
 The EOF_Foam code is written to solve PNP+Navier-Stokes equations.
 
-The code was developed to study ion transport and electroosmotic flow in nanofluidic channels and nanopores.
+The code was developed to study "Ion transport and electroosmotic flow in nanofluidic channels and nanopores".
 
 The code works for OpenFoam version 2.1.1. 
 
@@ -22,7 +22,7 @@ To run the code,
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
- Please cite the following references to use this code.
+Please cite the following references for using this code. 
 
 
 		1. V. V. R. Nandigana, K. D. Jo, A. T. Timperman and N. R. Aluru, Scientific Rep. (just accepted)
